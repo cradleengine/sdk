@@ -1,3 +1,3 @@
 # @playcradle/sdk
 
-SDK for Cradle Wallet
+SDK for dapps connecting to Cradle Wallet

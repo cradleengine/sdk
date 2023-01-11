@@ -1,11 +1,11 @@
 {
   "name": "@playcradle/sdk",
   "version": "1.0.0",
-  "description": "SDK for Cradle Wallet",
+  "description": "SDK for dapps connecting to Cradle Wallet",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
   "module": "build/module/index.js",
-  "repository": "https://github.com/YOUR_GITHUB_USER_NAME/@playcradle/sdk",
+  "repository": "https://github.com/cradleengine/sdk",
   "license": "MIT",
   "keywords": [],
   "scripts": {
