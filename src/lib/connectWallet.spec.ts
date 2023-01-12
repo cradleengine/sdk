@@ -1,4 +1,4 @@
-import test from 'ava';
+// import test from 'ava';
 
 // import { double, power } from './connectWallet';
 

@@ -1,8 +1,7 @@
 /**
- * @param value - Comment describing the `value` parameter.
- * @returns Comment describing the return type.
- * @anotherNote Some other value.
+ * @returns void
+ * @anotherNote opens cradle app
  */
-export const connectWallet = (value: number) => {
+export const connectWallet = () => {
   window.open(`cradlewallet://connectWallet/example/1?hostname=${window.location.hostname}`);
 };
