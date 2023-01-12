@@ -3,8 +3,12 @@
  * @anotherNote opens cradle app
  */
 export const connectWallet = () => {
-  window.open(
-    `cradlewallet://connectWallet/example/1?hostname=${window.location.hostname}`
-  );
+  if (window) {
+    window.open(
+      `cradlewallet://connectWallet/example/1?hostname=${window.location.hostname}`
+    );
+  } else {
+    console.log('window does not exist');
+  }
   return true;
 };
