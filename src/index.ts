@@ -1,1 +1,1 @@
-export * from './lib/connectWallet';
+export * from './lib/CradleEngine';

@@ -1,5 +1,5 @@
 import test from 'ava';
 
-test('connectWallet', (t) => {
+test('connectCradleWallet', (t) => {
   t.is(true, true);
 });
