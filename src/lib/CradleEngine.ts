@@ -1,8 +1,9 @@
-import { EventEmitter } from 'events';
-
+declare global {
+  interface Window {
+    ethereum?: any;
+  }
+}
 export const CradleEngine = () => {
-  const _eventEmitter = new EventEmitter();
-
   /**
    * @returns true
    * @anotherNote opens cradle app
@@ -12,7 +13,7 @@ export const CradleEngine = () => {
       window.open(
         `cradlewallet://connectWallet/example/1?hostname=${window.location.hostname}`
       );
-      _eventEmitter.emit('accountsChanged', [
+      window.ethereum.emit('accountsChanged', [
         '0x677e813fee748f9467de2f00a5ad9d1d8cf365bb',
       ]);
     } else {
