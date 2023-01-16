@@ -121,7 +121,7 @@ function setGlobalProvider(provider: CradleProvider, window: Window): void {
   // }).then((response) => {
   //     //If metamask is installed, only override the ethereum object if useMetamask is not set in storage
   //     if (!response.useMetamask) {
-  //         window.ethereum = window.cradle;
+  window.ethereum = window.cradle;
   //     }
   // });
 
