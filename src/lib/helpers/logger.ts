@@ -1,4 +1,3 @@
-// @ts-nocheck
 
 const debugLog = (function () {
     if (!console.log || process.env.NODE_ENV == 'production') {

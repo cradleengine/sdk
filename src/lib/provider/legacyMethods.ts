@@ -78,7 +78,7 @@ export async function sendAsyncHelper(
     payload,
     callback
   );
-  let { id, method, params } = payload;
+  const { id, method, params } = payload;
   return new Promise((resolve, reject) => {
     try {
       provider.request({ method, params }).then((result) => {

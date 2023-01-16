@@ -1,4 +1,3 @@
-// @ts-nocheck
 // import { sendViaRelay } from "@plasmohq/messaging";
 import { debug } from '../helpers/logger';
 

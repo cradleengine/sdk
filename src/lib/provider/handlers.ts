@@ -1,4 +1,3 @@
-//@ts-nocheck
 import { compareAccounts } from '../helpers/compareAccounts';
 import { debug } from '../helpers/logger';
 
@@ -51,7 +50,7 @@ export function handleDisconnectHelper(
 
 export function handleAccountsChangedHelper(
 	provider,
-	accounts: string[] | null | undefined,
+	accounts: readonly string[] | null | undefined,
 	isEthAccounts = false
 ): void {
 	if (!accounts) {
@@ -94,7 +93,7 @@ export function handleAccountsChangedHelper(
 			debug.log('Null');
 		}
 
-		provider._state.accounts = _accounts as string[];
+		provider._state.accounts = _accounts as readonly string[];
 
 		// handle selectedAddress
 		if (provider.selectedAddress !== _accounts[0]) {

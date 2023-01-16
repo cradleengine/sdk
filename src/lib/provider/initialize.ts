@@ -1,5 +1,5 @@
-// @ts-nocheck
 import { debug } from '../helpers/logger';
+
 import CradleProvider from './provider';
 // import { sendViaRelay } from "@plasmohq/messaging";
 
@@ -40,7 +40,7 @@ export const metamaskCheck = () => {
     const doesFileExist = (fileUrl) => {
         // check if we can open the file...
         try {
-            let xhr = new XMLHttpRequest();
+            const xhr = new XMLHttpRequest();
 
             xhr.open('HEAD', fileUrl, false);
             xhr.send();
@@ -63,7 +63,7 @@ export const metamaskCheck = () => {
     };
 
     try {
-        let result = doesFileExist(metamaskWebAccessibleFile);
+        const result = doesFileExist(metamaskWebAccessibleFile);
 
         // check if the RoninWallet extension is installed...
         if (result) {

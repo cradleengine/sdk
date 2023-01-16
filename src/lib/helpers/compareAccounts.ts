@@ -1,4 +1,3 @@
-// @ts-nocheck
 export function compareAccounts(accounts1: any, accounts2: any): boolean {
 	if (!accounts1 || accounts1 === null || !accounts2 || accounts2 === null) {
 		return false;

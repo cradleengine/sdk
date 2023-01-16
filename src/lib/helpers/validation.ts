@@ -1,12 +1,11 @@
-// @ts-nocheck
 import {
 	ChainIdParams,
+	supportedChainIds,
 	TransactionParams,
-	ValidateTransactionParams,
-	supportedChainIds
+	ValidateTransactionParams
 } from '../provider/types';
 
-export function isTransaction(arg: any): arg is TransactionParams[] {
+export function isTransaction(arg: any): arg is readonly TransactionParams[] {
 	return (
 		arg[0] &&
 		arg[0].from &&
@@ -16,7 +15,7 @@ export function isTransaction(arg: any): arg is TransactionParams[] {
 	);
 }
 
-export function isChainId(arg: any): arg is ChainIdParams[] {
+export function isChainId(arg: any): arg is readonly ChainIdParams[] {
 	return (
 		arg[0] &&
 		arg[0].chainId &&

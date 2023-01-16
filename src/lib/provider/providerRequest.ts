@@ -1,10 +1,10 @@
-// @ts-nocheck
+import { debug } from '../helpers/logger';
+import { isChainId, isTransaction } from '../helpers/validation';
+
 import type { RequestArguments } from './types';
 import { CHAIN_NOT_SUPPORTED_ERROR } from './types';
 // import { sendViaRelay } from "@plasmohq/messaging";
 // import { decrypt } from '../helpers/decrypt';
-import { debug } from '../helpers/logger';
-import { isChainId, isTransaction } from '../helpers/validation';
 
 export function providerRequests(
     provider: any,
@@ -136,7 +136,7 @@ export function providerRequests(
             } else {
                 // if accounts is undefined that means the intialization hasnt happened yet. Thus, just request accounts to obtain the accounts.
                 // This is more of a band aid fix for one function. Ideal solution is to wrap request function so that it waits for intializeState to run.
-                let accounts = await provider.request({
+                const accounts = await provider.request({
                     method: 'eth_requestAccounts',
                 });
 
@@ -147,7 +147,7 @@ export function providerRequests(
             if (provider.chainId) {
                 resolve(provider.chainId);
             } else {
-                let providerState = await provider.getProviderState();
+                const providerState = await provider.getProviderState();
                 resolve(providerState.state.chainId);
             }
         } else if (args.method === 'eth_blockNumber') {
@@ -172,7 +172,7 @@ export function providerRequests(
             if (provider.networkVersion) {
                 resolve(provider.networkVersion);
             } else {
-                let providerState = await provider.getProviderState();
+                const providerState = await provider.getProviderState();
                 resolve(providerState.state.networkVersion);
             }
         } else if (args.method === 'selectedAddress') {
@@ -181,7 +181,7 @@ export function providerRequests(
             args.method === 'wallet_requestPermissions' ||
             args.method === 'wallet_getPermissions'
         ) {
-            let responseObject = [
+            const responseObject = [
                 {
                     invoker: window.location.hostname, //Switch invoker to site that makes request
                     parentCapability: 'eth_accounts',
@@ -330,7 +330,7 @@ export function providerRequests(
                     },
                     'chain'
                 );
-                let { chainId, networkVersion } = providerState;
+                const { chainId, networkVersion } = providerState;
                 provider._handleChainChanged({
                     chainId,
                     networkVersion,
@@ -377,11 +377,11 @@ export function providerRequests(
         } else if (args.method === 'wallet_watchAsset') {
             //TODO
         } else if (args.method === 'eth_getEncryptionPublicKey') {
-            let resp = await provider.rpcStream('getEncryptionKey', {});
+            const resp = await provider.rpcStream('getEncryptionKey', {});
             debug.log('key', resp);
             resolve(resp.key);
         } else if (args.method === 'eth_decrypt') {
-            let resp = await provider.rpcStream('decrypt', args.params);
+            const resp = await provider.rpcStream('decrypt', args.params);
             resolve(resp.message);
         } else if (args.method === 'eth_call') {
             const response = await provider.rpcStream('ethCall', args.params);
