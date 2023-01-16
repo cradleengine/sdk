@@ -1,5 +1,5 @@
-import { debug } from "./helpers/logger";
-import { initializeProvider } from "./provider/initialize";
+import { debug } from './helpers/logger';
+import { initializeProvider } from './provider/initialize';
 
 export const CradleEngine = () => {
   const _provider = initializeProvider();
