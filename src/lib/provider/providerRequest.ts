@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { RequestArguments } from './types';
 import { CHAIN_NOT_SUPPORTED_ERROR } from './types';
 // import { sendViaRelay } from "@plasmohq/messaging";

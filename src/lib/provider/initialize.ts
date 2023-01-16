@@ -1,6 +1,7 @@
+// @ts-nocheck
+import { debug } from '../helpers/logger';
 import CradleProvider from './provider';
 // import { sendViaRelay } from "@plasmohq/messaging";
-import { debug } from '../helpers/logger';
 
 declare global {
     interface Window {

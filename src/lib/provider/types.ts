@@ -1,3 +1,4 @@
+// @ts-nocheck
 export enum TransactionTypes {
   EXECUTION_TRANSACTION,
   DEPLOYMENT_TRANSACTION,
