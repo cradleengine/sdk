@@ -2,8 +2,8 @@
 import { debug } from '../helpers/logger';
 
 export async function getStateHelper(provider): Promise<any> {
-	return new Promise(async (resolve, reject) => {
-		debug.log('CALLING provider Stream');
+	return new Promise(async (resolve) => {
+		debug.log('CALLING provider Stream', provider);
 		// const initialProviderState = await sendViaRelay({
 		// 	name: "state",
 		// 	body: {
@@ -27,10 +27,10 @@ export async function setStateHelper(
 	params: any,
 	type: 'accounts' | 'chain'
 ): Promise<any> {
-	return new Promise(async (resolve, reject) => {
-		debug.log('Trying to set State');
-		let methodName =
-			'setProviderState' + (type === 'accounts' ? 'Accounts' : 'Chain');
+	return new Promise(async (resolve) => {
+		debug.log('Trying to set State', provider, params, type);
+		// let methodName =
+		// 	'setProviderState' + (type === 'accounts' ? 'Accounts' : 'Chain');
 		// const providerState = await sendViaRelay({
 		// 	name: "state",
 		// 	body: {

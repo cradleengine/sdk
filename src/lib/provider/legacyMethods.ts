@@ -55,14 +55,14 @@ export function sendHelper(
 			}
 		});
 	} else if (typeof methodOrPayload === 'object') {
-		return new Promise((resolve, reject) => {
+		return new Promise((resolve) => {
 			provider.request(methodOrPayload).then((response) => {
 				resolve(response);
 			});
 		});
 	}
 
-	return new Promise((resolve, reject) => {
+	return new Promise((resolve) => {
 		console.error('CRADLE: UNIMPLEMENTED CASE');
 		resolve(null);
 	});

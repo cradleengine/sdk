@@ -160,6 +160,7 @@ export default class CradleProvider extends EventEmitter {
         if (!chainId) {
             chainId = this.chainId;
         }
+        debug.log(method, params, chainId);
         // return await sendViaRelay({
         //     name: "rpc",
         //     body: {

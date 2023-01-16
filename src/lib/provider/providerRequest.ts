@@ -53,9 +53,9 @@ export function providerRequests(
         } else if (args.method === 'disconnectSite') {
             provider._handleDisconnect(false, 'disconnectSite');
         } else if (args.method === 'eth_requestAccounts') {
-            let notificationResponse = await provider.notificationRequest(
-                'walletConnected'
-            );
+            // let notificationResponse = await provider.notificationRequest(
+            //     'walletConnected'
+            // );
             // const isAuthenticated = await sendViaRelay({
             //     name: "storage",
             //     body: { method: "getStorage" },
@@ -194,26 +194,26 @@ export function providerRequests(
             ];
             resolve(responseObject);
         } else if (args.method === 'eth_sign' || args.method === 'personal_sign') {
-            const msgParams: any = args.params;
-            // if the method is personal_sign
-            let signVersion = 'personal_sign';
-            let fromAddress = msgParams[1];
-            let msg = decrypt(msgParams[0]);
-            // if the method is eth_sign
-            if (args.method === 'eth_sign') {
-                /* signVersion = "eth_sign"; */
-                fromAddress = msgParams[0];
-                msg = msgParams[1];
-            }
-            // TODO: implement a more proper valid message hash function. this is pretty naive
-            let is_hashed = msg.substring(0, 2).toLowerCase() === '0x' ? true : false;
+            // const msgParams: any = args.params;
+            // // if the method is personal_sign
+            // let signVersion = 'personal_sign';
+            // let fromAddress = msgParams[1];
+            // let msg = decrypt(msgParams[0]);
+            // // if the method is eth_sign
+            // if (args.method === 'eth_sign') {
+            //     /* signVersion = "eth_sign"; */
+            //     fromAddress = msgParams[0];
+            //     msg = msgParams[1];
+            // }
+            // // TODO: implement a more proper valid message hash function. this is pretty naive
+            // let is_hashed = msg.substring(0, 2).toLowerCase() === '0x' ? true : false;
 
-            let msgForNotif = msg; // default just show the message
+            // let msgForNotif = msg; // default just show the message
 
-            if (msgParams[2]) {
-                // sometimes a third param is the text version of hashed message
-                msgForNotif = msgParams[2];
-            }
+            // if (msgParams[2]) {
+            //     // sometimes a third param is the text version of hashed message
+            //     msgForNotif = msgParams[2];
+            // }
 
             // const response = await sendViaRelay({
             //     name: "signMessage",
@@ -244,17 +244,17 @@ export function providerRequests(
             args.method === 'eth_signTypedData_v3' ||
             args.method === 'eth_signTypedData_v4'
         ) {
-            const msgParams: any = args.params;
-            const version =
-                args.method === 'eth_signTypedData'
-                    ? 'V1'
-                    : args.method === 'eth_signTypedData_v3'
-                        ? 'V3'
-                        : 'V4';
-            let message =
-                args.method === 'eth_signTypedData' ? msgParams[0] : msgParams[1];
-            let from =
-                args.method === 'eth_signTypedData' ? msgParams[1] : msgParams[0];
+            // const msgParams: any = args.params;
+            // const version =
+            //     args.method === 'eth_signTypedData'
+            //         ? 'V1'
+            //         : args.method === 'eth_signTypedData_v3'
+            //             ? 'V3'
+            //             : 'V4';
+            // let message =
+            //     args.method === 'eth_signTypedData' ? msgParams[0] : msgParams[1];
+            // let from =
+            //     args.method === 'eth_signTypedData' ? msgParams[1] : msgParams[0];
 
             const response = {
                 signature: 'signature',

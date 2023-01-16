@@ -3,7 +3,7 @@ import { debug } from '../helpers/logger';
 
 export function handleConnectHelper(provider, chainId: string) {
 	if (!provider._state.isConnected) {
-		provider.notificationRequest('walletConnected');
+		// provider.notificationRequest('walletConnected');
 		provider._state.isConnected = true;
 		provider.emit('connect', { chainId });
 	}
@@ -14,6 +14,9 @@ export function handleDisconnectHelper(
 	isRecoverable: boolean,
 	errorMessage?: string
 ) {
+	if (errorMessage) {
+		debug.log(errorMessage);
+	}
 	if (
 		provider._state.isConnected ||
 		(!provider._state.isPermanentlyDisconnected && !isRecoverable)
@@ -136,9 +139,9 @@ export function handleChainChangedHelper(provider, chainId, networkVersion) {
 		provider.chainId = chainId;
 		provider.networkVersion = networkVersion;
 		if (provider._state.initialized) {
-			provider.notificationRequest('chainSwitch', {
-				chainId,
-			});
+			// provider.notificationRequest('chainSwitch', {
+			// 	chainId,
+			// });
 			provider.emit('chainChanged', provider.chainId);
 			provider.emit('chainIdChanged', provider.chainId); // legacy method
 			provider.emit('networkChanged', provider.networkVersion); // legacy method
