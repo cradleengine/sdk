@@ -68,8 +68,15 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Classes</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-class"><a href="classes/suiprovider.html" class="tsd-kind-icon">sui<wbr>Provider</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Variables</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable"><a href="globals.html#conversion_factor" class="tsd-kind-icon">CONVERSION_<wbr>FACTOR</a></li>
 								<li class="tsd-kind-variable"><a href="globals.html#debugerror" class="tsd-kind-icon">debug<wbr>Error</a></li>
 								<li class="tsd-kind-variable"><a href="globals.html#debuglog" class="tsd-kind-icon">debug<wbr>Log</a></li>
 								<li class="tsd-kind-variable"><a href="globals.html#debugwarn" class="tsd-kind-icon">debug<wbr>Warn</a></li>
@@ -79,6 +86,14 @@
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function"><a href="globals.html#cradleengine" class="tsd-kind-icon">Cradle<wbr>Engine</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#generatedeeplink" class="tsd-kind-icon">generate<wbr>Deeplink</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#generateroomid" class="tsd-kind-icon">generate<wbr>Room<wbr>Id</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#getdomain" class="tsd-kind-icon">get<wbr>Domain</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#getsitemetadata" class="tsd-kind-icon">get<wbr>Site<wbr>Metadata</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#initializeprovider" class="tsd-kind-icon">initialize<wbr>Provider</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#initializesocketconnection" class="tsd-kind-icon">initialize<wbr>Socket<wbr>Connection</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#providerrequests" class="tsd-kind-icon">provider<wbr>Requests</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#setglobalprovider" class="tsd-kind-icon">set<wbr>Global<wbr>Provider</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -93,12 +108,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Variables</h2>
 				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="conversion_factor" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> CONVERSION_<wbr>FACTOR</h3>
+					<div class="tsd-signature tsd-kind-icon">CONVERSION_<wbr>FACTOR<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 10 ** 9</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/484a31c/src/lib/suiRequests.ts#L2">src/lib/suiRequests.ts:2</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
 					<a name="debugerror" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> debug<wbr>Error</h3>
 					<div class="tsd-signature tsd-kind-icon">debug<wbr>Error<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = (function () {if (!console.error || process.env.NODE_ENV &#x3D;&#x3D; &#x27;production&#x27;) {return function () {};}return Function.prototype.bind.call(console.error, console);})()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/0e27a8a/src/lib/helpers/logger.ts#L15">lib/helpers/logger.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/484a31c/src/lib/helpers/logger.ts#L15">src/lib/helpers/logger.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -108,7 +133,7 @@
 					<div class="tsd-signature tsd-kind-icon">debug<wbr>Log<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = (function () {if (!console.log || process.env.NODE_ENV &#x3D;&#x3D; &#x27;production&#x27;) {return function () {};}return Function.prototype.bind.call(console.log, console);})()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/0e27a8a/src/lib/helpers/logger.ts#L1">lib/helpers/logger.ts:1</a></li>
+							<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/484a31c/src/lib/helpers/logger.ts#L1">src/lib/helpers/logger.ts:1</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -118,7 +143,7 @@
 					<div class="tsd-signature tsd-kind-icon">debug<wbr>Warn<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = (function () {if (!console.warn || process.env.NODE_ENV &#x3D;&#x3D; &#x27;production&#x27;) {return function () {};}return Function.prototype.bind.call(console.warn, console);})()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/0e27a8a/src/lib/helpers/logger.ts#L8">lib/helpers/logger.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/484a31c/src/lib/helpers/logger.ts#L8">src/lib/helpers/logger.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -135,7 +160,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/0e27a8a/src/lib/CradleEngine.ts#L1">lib/CradleEngine.ts:1</a></li>
+									<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/484a31c/src/lib/CradleEngine.ts#L3">src/lib/CradleEngine.ts:3</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{ </span>initialize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">initialize</span><span class="tsd-signature-symbol"> }</span></h4>
@@ -144,6 +169,192 @@
 									<h5>initialize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">initialize</span></h5>
 								</li>
 							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="generatedeeplink" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> generate<wbr>Deeplink</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">generate<wbr>Deeplink<span class="tsd-signature-symbol">(</span>uniqueId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, requestedMethod<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, params<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/484a31c/src/lib/suiRequests.ts#L11">src/lib/suiRequests.ts:11</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>uniqueId: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>requestedMethod: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>params: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="generateroomid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> generate<wbr>Room<wbr>Id</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">generate<wbr>Room<wbr>Id<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/484a31c/src/lib/initialize.ts#L14">src/lib/initialize.ts:14</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="getdomain" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> get<wbr>Domain</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Domain<span class="tsd-signature-symbol">(</span>siteURL<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/484a31c/src/lib/suiRequests.ts#L4">src/lib/suiRequests.ts:4</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>siteURL: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="getsitemetadata" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> get<wbr>Site<wbr>Metadata</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Site<wbr>Metadata<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>icon<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/484a31c/src/lib/suiRequests.ts#L17">src/lib/suiRequests.ts:17</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{ </span>icon<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter">
+									<h5>icon<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="initializeprovider" class="tsd-anchor"></a>
+					<h3>initialize<wbr>Provider</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">initialize<wbr>Provider<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="classes/suiprovider.html" class="tsd-signature-type">suiProvider</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/484a31c/src/lib/initialize.ts#L6">src/lib/initialize.ts:6</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="classes/suiprovider.html" class="tsd-signature-type">suiProvider</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="initializesocketconnection" class="tsd-anchor"></a>
+					<h3>initialize<wbr>Socket<wbr>Connection</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">initialize<wbr>Socket<wbr>Connection<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/484a31c/src/lib/initialize.ts#L21">src/lib/initialize.ts:21</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="providerrequests" class="tsd-anchor"></a>
+					<h3>provider<wbr>Requests</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">provider<wbr>Requests<span class="tsd-signature-symbol">(</span>provider<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, callback<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">(Anonymous function)</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/484a31c/src/lib/suiRequests.ts#L26">src/lib/suiRequests.ts:26</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>provider: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>args: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> callback: <span class="tsd-signature-type">(Anonymous function)</span><span class="tsd-signature-symbol"> = () &#x3D;&gt; {}</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="setglobalprovider" class="tsd-anchor"></a>
+					<h3>set<wbr>Global<wbr>Provider</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Global<wbr>Provider<span class="tsd-signature-symbol">(</span>suiProvider<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, window<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/484a31c/src/lib/initialize.ts#L52">src/lib/initialize.ts:52</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>suiProvider: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>window: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -156,7 +367,7 @@
 					<div class="tsd-signature tsd-kind-icon">debug<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/0e27a8a/src/lib/helpers/logger.ts#L22">lib/helpers/logger.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/484a31c/src/lib/helpers/logger.ts#L22">src/lib/helpers/logger.ts:22</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -165,7 +376,7 @@
 						<div class="tsd-signature tsd-kind-icon">error<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = debugError</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/0e27a8a/src/lib/helpers/logger.ts#L25">lib/helpers/logger.ts:25</a></li>
+								<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/484a31c/src/lib/helpers/logger.ts#L25">src/lib/helpers/logger.ts:25</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -175,7 +386,7 @@
 						<div class="tsd-signature tsd-kind-icon">log<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = debugLog</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/0e27a8a/src/lib/helpers/logger.ts#L23">lib/helpers/logger.ts:23</a></li>
+								<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/484a31c/src/lib/helpers/logger.ts#L23">src/lib/helpers/logger.ts:23</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -185,7 +396,7 @@
 						<div class="tsd-signature tsd-kind-icon">warn<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = debugWarn</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/0e27a8a/src/lib/helpers/logger.ts#L24">lib/helpers/logger.ts:24</a></li>
+								<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/484a31c/src/lib/helpers/logger.ts#L24">src/lib/helpers/logger.ts:24</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -202,6 +413,12 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class">
+						<a href="classes/suiprovider.html" class="tsd-kind-icon">sui<wbr>Provider</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#conversion_factor" class="tsd-kind-icon">CONVERSION_<wbr>FACTOR</a>
+					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#debugerror" class="tsd-kind-icon">debug<wbr>Error</a>
 					</li>
@@ -213,6 +430,30 @@
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#cradleengine" class="tsd-kind-icon">Cradle<wbr>Engine</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#generatedeeplink" class="tsd-kind-icon">generate<wbr>Deeplink</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#generateroomid" class="tsd-kind-icon">generate<wbr>Room<wbr>Id</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getdomain" class="tsd-kind-icon">get<wbr>Domain</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getsitemetadata" class="tsd-kind-icon">get<wbr>Site<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#initializeprovider" class="tsd-kind-icon">initialize<wbr>Provider</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#initializesocketconnection" class="tsd-kind-icon">initialize<wbr>Socket<wbr>Connection</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#providerrequests" class="tsd-kind-icon">provider<wbr>Requests</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#setglobalprovider" class="tsd-kind-icon">set<wbr>Global<wbr>Provider</a>
 					</li>
 					<li class=" tsd-kind-object-literal">
 						<a href="globals.html#debug" class="tsd-kind-icon">debug</a>
@@ -226,6 +467,13 @@
 	<div class="container">
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+			</ul>
 		</div>
 	</div>
 </footer>
