@@ -1,9 +1,6 @@
 //@ts-nocheck
 
-import { handleConnectHelper, handleDisconnectHelper } from './handlers.js';
-import { getStateHelper, setStateHelper } from './stateCommunication.js';
 import { providerRequests } from './suiRequests.js';
-import { sendViaRelay } from './relay.js';
 import { EventEmitter } from 'events';
 
 export default class suiProvider extends EventEmitter {
