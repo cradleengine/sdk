@@ -1,6 +1,4 @@
-
-import {initializeProvider} from "./initialize"
-
+import { initializeProvider } from './initialize';
 
 export const CradleEngine = () => {
   /**
@@ -8,7 +6,7 @@ export const CradleEngine = () => {
    * @anotherNote Initializes CradleEngine
    */
   const initialize = () => {
-    initializeProvider()
+    initializeProvider();
   };
 
   return {
