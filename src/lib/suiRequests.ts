@@ -5,7 +5,7 @@ const getDomain = (siteURL) => {
   try {
     let URLObject = new URL(siteURL);
     return URLObject.hostname;
-  } catch (e) {}
+  } catch (e) { }
 };
 
 const generateDeeplink = (uniqueId, requestedMethod, params) => {
@@ -23,9 +23,17 @@ const getSiteMetadata = () => {
   };
 };
 
-export function providerRequests(provider, args, callback = () => {}) {
+export function providerRequests(provider, args, callback = () => { }) {
   window.suiSocket.disconnect();
   return new Promise(async (resolve, reject) => {
+    if (args.method === 'connectWallet') {
+      const stored_addr = window.localStorage.getItem("cradleAddress")
+      if (stored_addr) {
+        window.sui.selectedAddress = stored_addr;
+        resolve(stored_addr);
+        return;
+      }
+    }
     const deepLink = generateDeeplink(
       window.suiRoomId,
       args.method,
@@ -43,6 +51,7 @@ export function providerRequests(provider, args, callback = () => {}) {
         method === 'connectWalletResponse'
       ) {
         window.sui.selectedAddress = payload.address;
+        window.localStorage.setItem("cradleAddress", payload.address)
         resolve(payload.address);
       } else if (
         args.method === 'signAndExecute' &&
