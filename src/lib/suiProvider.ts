@@ -29,13 +29,11 @@ export default class suiProvider extends EventEmitter {
   }
 
   async initializeState() {
-    console.log('HERE?');
     //Won't work because we don't have chrome storage -> move to local storage, if we don't want to open app
     // let { accounts } = (await this.getProviderState()).state;
     let accounts = [];
 
     try {
-      console.log('Bruh?');
       this._state.isUnlocked = true;
       this._state.initialized = true;
     } catch (e) {
@@ -44,7 +42,9 @@ export default class suiProvider extends EventEmitter {
 
     console.warn('here');
 
-    console.log('%c \n SUI CRADLE IS UP\n', 'background: #222; color: #2255f0');
+    console.log('%c \n SUI CRADLE IS UP\n', 'color: #2255f0');
+
+    this.emit('connect')
   }
 
   async request(args) {
@@ -56,27 +56,6 @@ export default class suiProvider extends EventEmitter {
     return this._state.isConnected;
   }
 
-  // Helpers
-  async getProviderState() {
-    return getStateHelper(this, 'sui');
-  }
-
-  async setProviderState(params, type) {
-    return setStateHelper(this, params, type);
-  }
-
-  async rpcStream(method, params, chainId) {
-    //Instead of sending to relay, we need to open this in the deeplink
-    return await sendViaRelay({
-      name: 'suiRpc',
-      body: {
-        method,
-        params,
-        chainId,
-      },
-    });
-  }
-
   async providerResponse(method, data) {
     //Probably useless
     window.postMessage({
@@ -84,14 +63,5 @@ export default class suiProvider extends EventEmitter {
       isResponse: true,
       response: data,
     });
-  }
-
-  // Private methods
-  _handleConnect(chainId) {
-    handleConnectHelper(this, chainId);
-  }
-
-  _handleDisconnect(isRecoverable, errorMessage) {
-    handleDisconnectHelper(this, isRecoverable, errorMessage);
   }
 }
