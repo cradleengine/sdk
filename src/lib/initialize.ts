@@ -5,9 +5,14 @@ import io from 'socket.io-client';
 
 export function initializeProvider() {
   console.log('%c \nINITIALIZING CRADLE\n', 'background: #222; color: #2255f0');
-  let sui_provider = new suiProvider();
-  setGlobalProvider(sui_provider, window);
-  initializeSocketConnection();
+  let sui_provider
+  if (window.sui) {
+    sui_provider = window.sui;
+  } else {
+    sui_provider = new suiProvider();
+    setGlobalProvider(sui_provider, window);
+    initializeSocketConnection();
+  }
   return sui_provider;
 }
 
@@ -50,7 +55,5 @@ function initializeSocketConnection() {
 }
 
 function setGlobalProvider(suiProvider, window) {
-  if (!window.sui) {
-    window.sui = suiProvider;
-  }
+  window.sui = suiProvider;
 }
