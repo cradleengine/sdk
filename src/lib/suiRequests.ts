@@ -41,7 +41,7 @@ export function providerRequests(provider, args, callback = () => { }) {
       resolve(true);
       return;
     }
-    console.log("HERE?")
+
     const deepLink = generateDeeplink(
       window.suiRoomId,
       args.method,
