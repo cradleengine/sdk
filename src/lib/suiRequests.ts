@@ -34,6 +34,14 @@ export function providerRequests(provider, args, callback = () => { }) {
         return;
       }
     }
+    if (args.method === 'disconnectWallet') {
+      window.localStorage.removeItem("cradleAddress")
+      window.sui.selectedAddress = null;
+      window.sui.balance = 0;
+      resolve(true);
+      return;
+    }
+    console.log("HERE?")
     const deepLink = generateDeeplink(
       window.suiRoomId,
       args.method,
@@ -51,7 +59,9 @@ export function providerRequests(provider, args, callback = () => { }) {
         method === 'connectWalletResponse'
       ) {
         window.sui.selectedAddress = payload.address;
-        window.localStorage.setItem("cradleAddress", payload.address)
+        if (!(args.params && args.params.persists === false)) {
+          window.localStorage.setItem("cradleAddress", payload.address)
+        }
         resolve(payload.address);
       } else if (
         args.method === 'signAndExecute' &&
