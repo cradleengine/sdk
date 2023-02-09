@@ -44,7 +44,7 @@ export default class suiProvider extends EventEmitter {
 
     console.log('%c \n SUI CRADLE IS UP\n', 'color: #2255f0');
 
-    this.emit('connect')
+    this.emit('connect');
   }
 
   async request(args) {

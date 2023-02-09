@@ -5,7 +5,7 @@ import io from 'socket.io-client';
 
 export function initializeProvider() {
   console.log('%c \nINITIALIZING CRADLE\n', 'background: #222; color: #2255f0');
-  let sui_provider
+  let sui_provider;
   if (window.sui) {
     sui_provider = window.sui;
   } else {

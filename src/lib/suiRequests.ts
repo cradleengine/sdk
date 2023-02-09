@@ -5,7 +5,7 @@ const getDomain = (siteURL) => {
   try {
     let URLObject = new URL(siteURL);
     return URLObject.hostname;
-  } catch (e) { }
+  } catch (e) {}
 };
 
 const generateDeeplink = (uniqueId, requestedMethod, params) => {
@@ -23,11 +23,11 @@ const getSiteMetadata = () => {
   };
 };
 
-export function providerRequests(provider, args, callback = () => { }) {
+export function providerRequests(provider, args, callback = () => {}) {
   window.suiSocket.disconnect();
   return new Promise(async (resolve, reject) => {
     if (args.method === 'connectWallet') {
-      const stored_addr = window.localStorage.getItem("cradleAddress")
+      const stored_addr = window.localStorage.getItem('cradleAddress');
       if (stored_addr) {
         window.sui.selectedAddress = stored_addr;
         resolve(stored_addr);
@@ -35,7 +35,7 @@ export function providerRequests(provider, args, callback = () => { }) {
       }
     }
     if (args.method === 'disconnectWallet') {
-      window.localStorage.removeItem("cradleAddress")
+      window.localStorage.removeItem('cradleAddress');
       window.sui.selectedAddress = null;
       window.sui.balance = 0;
       resolve(true);
@@ -60,7 +60,7 @@ export function providerRequests(provider, args, callback = () => { }) {
       ) {
         window.sui.selectedAddress = payload.address;
         if (!(args.params && args.params.persists === false)) {
-          window.localStorage.setItem("cradleAddress", payload.address)
+          window.localStorage.setItem('cradleAddress', payload.address);
         }
         resolve(payload.address);
       } else if (
