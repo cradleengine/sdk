@@ -7,4 +7,4 @@
  - `git push`
 
 
-SDK for dapps connecting to Cradle Walletx
+SDK for dapps connecting to Cradle Wallet
