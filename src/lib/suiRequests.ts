@@ -42,13 +42,15 @@ export function providerRequests(provider, args, callback = () => {}) {
       return;
     }
 
-    const deepLink = generateDeeplink(
-      window.suiRoomId,
-      args.method,
-      args.params
-    );
-    window.location.href = deepLink;
-    // callback("PRE-SOCKET");
+    if (args.method) {
+      const deepLink = generateDeeplink(
+        window.suiRoomId,
+        args.method,
+        args.params
+      );
+      window.location.href = deepLink;
+    }
+
     window.suiSocket.on('messageToDapp', async (result) => {
       console.log('Message received', result);
       const { method, payload } = result;
