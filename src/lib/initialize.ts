@@ -4,8 +4,8 @@ import suiProvider from "./suiProvider.js";
 import io from "socket.io-client";
 
 const stores = {
-  mobile: "",
-  web: "",
+  mobile: "https://play.google.com/store/apps/details?id=com.playcradle.wallet",
+  web: "https://chrome.google.com/webstore/detail/cradle/ppgbdgcacdkfilmdgjlcmigpbnamdkip",
 };
 
 const checkMobile = () => {

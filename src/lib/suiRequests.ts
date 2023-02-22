@@ -80,6 +80,11 @@ export function providerRequests(provider, args, callback = () => {}) {
       return;
     }
     let messageSender;
+    if ( provider.store ) {
+      window.open(provider.store,"_blank")
+      resolve(true);
+      return;
+    }
     if (provider.tab && args.method) {
       //Open a tab based on method, give it all the params it needs
 
@@ -90,44 +95,6 @@ export function providerRequests(provider, args, callback = () => {}) {
         walletTabWindow = window.open(walletApp + `/sign`, "_blank", "");
       }
       messageSender = walletTabWindow;
-      // const myWindow = window.open(walletApp + `/connect`, "_blank", "");
-      // let data = {
-      //   method: "connectWallet",
-      //   callerOrigin: window.location.href,
-      //   title: document.title,
-      // };
-      // myWindow.postMessage(JSON.stringify(data), walletApp);
-
-      // //Need to know that tab is ready to receive messages
-      // window.addEventListener("message", (e) => {
-      //   if (e.origin != window.location.href) {
-      //     console.log(e.data);
-      //     const response = JSON.parse(e.data);
-      //     console.log("RESP", response);
-      //     switch (response.method) {
-      //       case "readyIframeOpener":
-      //         let data = {
-      //           method: "connectWallet",
-      //           callerOrigin: window.location.href,
-      //           title: document.title,
-      //         };
-      //         myWindow.postMessage(JSON.stringify(data), walletApp);
-      //         break;
-      //       case "connectWalletResponseTab":
-      //         window.sui.selectedAddress = response.response; //Don't do this if error
-      //         resolve(response.response);
-      //         myWindow.close()
-      //         // window.localStorage.setItem(
-      //         //   "cradleAddress",
-      //         //   window.sui.selectedAddress
-      //         // );
-      //         break;
-      //       case "closeWindow":
-      //         myWindow.close();
-      //         break;
-      //     }
-      //   }
-      // });
     } else if (provider.iframe && args.method) {
       //Open iFrame
       const generatedIframe = generateIframe(args.method);
