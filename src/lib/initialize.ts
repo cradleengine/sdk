@@ -6,8 +6,8 @@ import io from 'socket.io-client';
 export function initializeProvider() {
   console.log('%c \nINITIALIZING CRADLE\n', 'background: #222; color: #2255f0');
   let sui_provider;
-  if (window.sui) {
-    sui_provider = window.sui;
+  if (window.sui || window.cradle) {
+    sui_provider = window.sui || window.cradle;
   } else {
     sui_provider = new suiProvider();
     setGlobalProvider(sui_provider, window);
@@ -56,4 +56,5 @@ function initializeSocketConnection() {
 
 function setGlobalProvider(suiProvider, window) {
   window.sui = suiProvider;
+  window.cradle = suiProvider;
 }
