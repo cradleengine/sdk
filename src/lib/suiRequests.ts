@@ -23,7 +23,13 @@ const getSiteMetadata = () => {
   };
 };
 
-const generateIframe = (path = "/connect") => {
+const generateIframe = (method = "connectWallet") => {
+  let frameSource;
+  if (method === "connectWallet") {
+    frameSource = `https://9ce370f062fa.ngrok.io/connect`; //Change to hosted
+  } else {
+    frameSource = `https://9ce370f062fa.ngrok.io/sign`; //Change to hosted
+  }
   var newDiv = document.createElement("div");
   document.body.insertBefore(newDiv, document.body.firstElementChild);
   var iframe = document.createElement("iframe");
@@ -34,7 +40,7 @@ const generateIframe = (path = "/connect") => {
     iframe.style.cssText = "display:none;";
     btn.style.cssText = "display:none;";
   };
-  iframe.src = `http://localhost:3000${path}`;
+  iframe.src = frameSource;
   iframe.setAttribute("id", "wallet");
   iframe.style.cssText =
     "border:1px solid;border-radius:8px;position:fixed;top:25px;right:25px;display:flex;" +
@@ -50,6 +56,7 @@ const generateIframe = (path = "/connect") => {
   z-index: 15000;`;
   newDiv.appendChild(iframe);
   newDiv.appendChild(btn);
+  return iframe.contentWindow;
 };
 
 export function providerRequests(provider, args, callback = () => {}) {
@@ -72,95 +79,99 @@ export function providerRequests(provider, args, callback = () => {}) {
       resolve(true);
       return;
     }
-
-    if (provider.embedded && provider.mobile) {
+    let messageSender;
+    if (provider.tab && args.method) {
       //Open a tab based on method, give it all the params it needs
 
-      const myWindow = window.open(walletApp + `/connect`, "_blank", "");
-      let data = {
-        method: "connectWallet",
-        callerOrigin: window.location.href,
-        title: document.title,
-      };
-      myWindow.postMessage(JSON.stringify(data), walletApp);
+      let walletTabWindow;
+      if (args.method === "connectWallet") {
+        walletTabWindow = window.open(walletApp + `/connect`, "_blank", "");
+      } else {
+        walletTabWindow = window.open(walletApp + `/sign`, "_blank", "");
+      }
+      messageSender = walletTabWindow;
+      // const myWindow = window.open(walletApp + `/connect`, "_blank", "");
+      // let data = {
+      //   method: "connectWallet",
+      //   callerOrigin: window.location.href,
+      //   title: document.title,
+      // };
+      // myWindow.postMessage(JSON.stringify(data), walletApp);
 
-      //Need to know that tab is ready to receive messages
-      window.addEventListener("message", (e) => {
-        if (e.origin != window.location.href) {
-          console.log(e.data);
-          const response = JSON.parse(e.data);
-          console.log("RESP", response);
-          switch (response.method) {
-            case "readyIframeOpener":
-              let data = {
-                method: "connectWallet",
-                callerOrigin: window.location.href,
-                title: document.title,
-              };
-              myWindow.postMessage(JSON.stringify(data), walletApp);
-              break;
-            case "connectWalletResponseTab":
-              window.sui.selectedAddress = response.response; //Don't do this if error
-              resolve(response.response);
-              myWindow.close()
-              // window.localStorage.setItem(
-              //   "cradleAddress",
-              //   window.sui.selectedAddress
-              // );
-              break;
-            case "closeWindow":
-              myWindow.close();
-              break;
-          }
-        }
-      });
+      // //Need to know that tab is ready to receive messages
+      // window.addEventListener("message", (e) => {
+      //   if (e.origin != window.location.href) {
+      //     console.log(e.data);
+      //     const response = JSON.parse(e.data);
+      //     console.log("RESP", response);
+      //     switch (response.method) {
+      //       case "readyIframeOpener":
+      //         let data = {
+      //           method: "connectWallet",
+      //           callerOrigin: window.location.href,
+      //           title: document.title,
+      //         };
+      //         myWindow.postMessage(JSON.stringify(data), walletApp);
+      //         break;
+      //       case "connectWalletResponseTab":
+      //         window.sui.selectedAddress = response.response; //Don't do this if error
+      //         resolve(response.response);
+      //         myWindow.close()
+      //         // window.localStorage.setItem(
+      //         //   "cradleAddress",
+      //         //   window.sui.selectedAddress
+      //         // );
+      //         break;
+      //       case "closeWindow":
+      //         myWindow.close();
+      //         break;
+      //     }
+      //   }
+      // });
+    } else if (provider.iframe && args.method) {
+      //Open iFrame
+      const generatedIframe = generateIframe(args.method);
+      messageSender = generatedIframe;
     }
 
-    else if (provider.embedded && args.method && !provider.mobile) {
-      //Open iFrame
-      if (args.method === "connectWallet") {
-        generateIframe("/connect");
-      } else {
-        generateIframe("/sign");
-      }
-      //Check if ready to receive messages
-      //Send parameters
-      // console.log("SENDING");
+    if (args.method && (provider.iframe || provider.tab)) {
+      //Messaging Stream
       window.addEventListener("message", (e) => {
         if (e.origin != window.location.href) {
-          //Ready to send messages
           const response = JSON.parse(e.data);
-          console.log("RESPONSE", response);
           let data;
           switch (response.method) {
-            case "readyIframe":
+            case "connectWalletReady":
               data = {
                 method: "connectWallet",
                 callerOrigin: window.location.href,
                 title: document.title,
               };
-              document
-                .getElementById("wallet")
-                .contentWindow.postMessage(JSON.stringify(data), walletApp);
+              messageSender.postMessage(JSON.stringify(data), walletApp);
               break;
-            case "signIframeReady":
+            case "connectWalletResponse":
+              if ( provider.iframe ) {
+                document.getElementById("wallet").style.cssText = "display:none;";
+              } else if ( provider.tab ) {
+                messageSender.close();
+              }
+              window.sui.selectedAddress = response.response; //Don't do this if error
+              //Set in local storage
+              resolve(response.response);
+            case "signTransactionReady":
               data = {
                 method: args.method,
                 params: args.params,
-              };
-              document
-                .getElementById("wallet")
-                .contentWindow.postMessage(JSON.stringify(data), walletApp);
+              };    
+              messageSender.postMessage(JSON.stringify(data), walletApp);          
               break;
-            case "connectWalletResponse":
-              document.getElementById("wallet").style.cssText = "display:none;";
-              window.sui.selectedAddress = response.response; //Don't do this if error
+            case "signTransactionResponse":
+              if ( provider.iframe ) {
+                document.getElementById("wallet").style.cssText = "display:none;";
+              } else if ( provider.tab ) {
+                messageSender.close();
+              }
               resolve(response.response);
-            case "signatureResponse":
-              document.getElementById("wallet").style.cssText = "display:none;";
-              resolve(response.response);
-            default:
-              break;
           }
         }
       });
