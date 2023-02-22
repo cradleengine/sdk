@@ -18,6 +18,8 @@ export default class suiProvider extends EventEmitter {
       initialized: false,
       isPermanentlyDisconnected: false,
     };
+    this.embedded = true;
+    this.mobile = true;
     this.initializeState();
     this.on('connect', () => {
       if (!this._state || !this._state.isConnected) {
