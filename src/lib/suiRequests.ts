@@ -64,7 +64,6 @@ export function providerRequests(provider, args, callback = () => {}) {
   window.suiSocket?.disconnect();
   return new Promise(async (resolve, reject) => {
     if (args.method === "connectWallet") {
-      window.localStorage.clear();
       const stored_addr = window.localStorage.getItem("cradleAddress");
       if (stored_addr) {
         window.sui.selectedAddress = stored_addr;
@@ -123,6 +122,7 @@ export function providerRequests(provider, args, callback = () => {}) {
                 messageSender.close();
               }
               window.sui.selectedAddress = response.response; //Don't do this if error
+              window.localStorage.setItem("cradleAddress", response.response);
               //Set in local storage
               resolve(response.response);
             case "signTransactionReady":
