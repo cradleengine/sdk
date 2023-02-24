@@ -64,7 +64,6 @@ export function providerRequests(provider, args, callback = () => {}) {
   window.suiSocket?.disconnect();
   return new Promise(async (resolve, reject) => {
     if (args.method === "connectWallet") {
-      window.localStorage.clear();
       const stored_addr = window.localStorage.getItem("cradleAddress");
       if (stored_addr) {
         window.sui.selectedAddress = stored_addr;
