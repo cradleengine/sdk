@@ -142,7 +142,7 @@ export function providerRequests(provider, args, callback = () => {}) {
           }
         }
       });
-    } else if ( window.suiRoomId ) {
+    } else if ( window.suiRoomId && args.method ) {
       const deepLink = generateDeeplink(
         window.suiRoomId,
         args.method,
