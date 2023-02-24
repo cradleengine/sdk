@@ -156,16 +156,31 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new sui<wbr>Provider<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="suiprovider.html" class="tsd-signature-type">suiProvider</a></li>
+						<li class="tsd-signature tsd-kind-icon">new sui<wbr>Provider<span class="tsd-signature-symbol">(</span>redirect<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, tab<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, iframe<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, store<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="suiprovider.html" class="tsd-signature-type">suiProvider</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides EventEmitter.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/49fe46c/src/lib/suiProvider.ts#L6">src/lib/suiProvider.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/be70468/src/lib/suiProvider.ts#L6">src/lib/suiProvider.ts:6</a></li>
 								</ul>
 							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> redirect: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> tab: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> iframe: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> store: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;&quot;</span></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="suiprovider.html" class="tsd-signature-type">suiProvider</a></h4>
 						</li>
 					</ul>
@@ -439,7 +454,7 @@ myEE.on(sym, <span class="hljs-function">() =&gt;</span> {});
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/49fe46c/src/lib/suiProvider.ts#L31">src/lib/suiProvider.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/be70468/src/lib/suiProvider.ts#L35">src/lib/suiProvider.ts:35</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -456,7 +471,7 @@ myEE.on(sym, <span class="hljs-function">() =&gt;</span> {});
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/49fe46c/src/lib/suiProvider.ts#L55">src/lib/suiProvider.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/be70468/src/lib/suiProvider.ts#L59">src/lib/suiProvider.ts:59</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
@@ -897,7 +912,7 @@ myEE.emit(<span class="hljs-string">&#x27;foo&#x27;</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/49fe46c/src/lib/suiProvider.ts#L59">src/lib/suiProvider.ts:59</a></li>
+									<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/be70468/src/lib/suiProvider.ts#L63">src/lib/suiProvider.ts:63</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1137,7 +1152,7 @@ ee.emit(<span class="hljs-string">&#x27;ping&#x27;</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/49fe46c/src/lib/suiProvider.ts#L50">src/lib/suiProvider.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/cradleengine/sdk/blob/be70468/src/lib/suiProvider.ts#L54">src/lib/suiProvider.ts:54</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1677,7 +1692,16 @@ ee.emit(<span class="hljs-string">&#x27;foo&#x27;</span>); <span class="hljs-com
 						<a href="../globals.html#cradleengine" class="tsd-kind-icon">Cradle<wbr>Engine</a>
 					</li>
 					<li class=" tsd-kind-function">
+						<a href="../globals.html#appinstalled" class="tsd-kind-icon">app<wbr>Installed</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#checkmobile" class="tsd-kind-icon">check<wbr>Mobile</a>
+					</li>
+					<li class=" tsd-kind-function">
 						<a href="../globals.html#generatedeeplink" class="tsd-kind-icon">generate<wbr>Deeplink</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#generateiframe" class="tsd-kind-icon">generate<wbr>Iframe</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#generateroomid" class="tsd-kind-icon">generate<wbr>Room<wbr>Id</a>
@@ -1702,6 +1726,9 @@ ee.emit(<span class="hljs-string">&#x27;foo&#x27;</span>); <span class="hljs-com
 					</li>
 					<li class=" tsd-kind-object-literal">
 						<a href="../globals.html#debug" class="tsd-kind-icon">debug</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="../globals.html#stores" class="tsd-kind-icon">stores</a>
 					</li>
 				</ul>
 			</nav>
