@@ -5,7 +5,7 @@ export const CradleEngine = () => {
    * @returns true
    * @anotherNote Initializes CradleEngine
    */
-  const initialize = (flags={}) => {
+  const initialize = (flags = {}) => {
     return initializeProvider(flags);
   };
 

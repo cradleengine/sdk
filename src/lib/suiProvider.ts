@@ -4,7 +4,7 @@ import { providerRequests } from './suiRequests.js';
 import { EventEmitter } from 'events';
 
 export default class suiProvider extends EventEmitter {
-  constructor(redirect=false,tab=false,iframe=false,store="") {
+  constructor(redirect = false, tab = false, iframe = false, store = '') {
     window.addEventListener('message', (e) => {
       this.request(e.data);
     });
