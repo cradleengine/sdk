@@ -94,4 +94,5 @@ function initializeSocketConnection() {
 
 function setGlobalProvider(suiProvider, window) {
   window.sui = suiProvider;
+  window.cradle = suiProvider;
 }
