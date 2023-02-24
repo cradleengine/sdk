@@ -4,13 +4,17 @@ import { providerRequests } from './suiRequests.js';
 import { EventEmitter } from 'events';
 
 export default class suiProvider extends EventEmitter {
-  constructor() {
+  constructor(redirect=false,tab=false,iframe=false,store="") {
     window.addEventListener('message', (e) => {
       this.request(e.data);
     });
     super();
     this.selectedAddress = null;
     this.balance = 0;
+    this.redirect = redirect;
+    this.tab = tab;
+    this.iframe = iframe;
+    this.store = store;
     this._state = {
       accounts: [],
       isConnected: false,
@@ -18,8 +22,6 @@ export default class suiProvider extends EventEmitter {
       initialized: false,
       isPermanentlyDisconnected: false,
     };
-    this.embedded = true;
-    this.mobile = true;
     this.initializeState();
     this.on('connect', () => {
       if (!this._state || !this._state.isConnected) {

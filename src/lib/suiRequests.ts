@@ -26,9 +26,9 @@ const getSiteMetadata = () => {
 const generateIframe = (method = "connectWallet") => {
   let frameSource;
   if (method === "connectWallet") {
-    frameSource = `https://9ce370f062fa.ngrok.io/connect`; //Change to hosted
+    frameSource = `https://cradle-wallet-web-production.up.railway.app/connect`;
   } else {
-    frameSource = `https://9ce370f062fa.ngrok.io/sign`; //Change to hosted
+    frameSource = `https://cradle-wallet-web-production.up.railway.app/sign`;
   }
   var newDiv = document.createElement("div");
   document.body.insertBefore(newDiv, document.body.firstElementChild);
@@ -60,7 +60,7 @@ const generateIframe = (method = "connectWallet") => {
 };
 
 export function providerRequests(provider, args, callback = () => {}) {
-  const walletApp = "https://9ce370f062fa.ngrok.io";
+  const walletApp = "https://cradle-wallet-web-production.up.railway.app";
   window.suiSocket?.disconnect();
   return new Promise(async (resolve, reject) => {
     if (args.method === "connectWallet") {
@@ -80,7 +80,7 @@ export function providerRequests(provider, args, callback = () => {}) {
       return;
     }
     let messageSender;
-    if ( provider.store ) {
+    if ( provider.store && provider.redirect ) {
       window.open(provider.store,"_blank")
       resolve(true);
       return;
@@ -142,13 +142,18 @@ export function providerRequests(provider, args, callback = () => {}) {
           }
         }
       });
-    } else {
+    } else if ( window.suiRoomId ) {
       const deepLink = generateDeeplink(
         window.suiRoomId,
         args.method,
         args.params
       );
+      
       window.location.href = deepLink;
+      setTimeout(function() {
+        // Link to the App Store should go here -- only fires if deep link fails                
+        window.location = "https://play.google.com/store/apps/details?id=com.playcradle.wallet";
+     }, 500);
       // callback("PRE-SOCKET");
       window.suiSocket.on("messageToDapp", async (result) => {
         console.log("Message received", result);

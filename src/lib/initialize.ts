@@ -17,13 +17,16 @@ const checkMobile = () => {
 };
 
 const appInstalled = () => {
+  if ( checkMobile() && Math.random() < 0.5) {
+    return true;
+  }
   return false;
 }
 
 export function initializeProvider(flags) {
   console.log("%c \nINITIALIZING CRADLE\n", "background: #222; color: #2255f0");
   let sui_provider;
-  if (window.sui || (window.cradle && !flags.forceEmbedded)) {
+  if ((window.sui || window.cradle) && !flags.forceEmbedded) {
     //Extension Installed
     sui_provider = window.sui || window.cradle;
   } else if (appInstalled() && !flags.forceEmbedded) {
